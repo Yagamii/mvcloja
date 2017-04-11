@@ -24,13 +24,23 @@
 					endforeach;
 
 					//Após logar, joga o usuario de volta a pagina inicial
-					header("Location: index.php");
+					header("Location: index.php?page=login&action=logado");
 
 				}catch(Exception $e){
 					MsgHandler::setError($e->getMessage());
 				}
 
 			endif;
+
+		}
+
+		public function logado(){
+
+					if($_SESSION['logado'] === true):
+
+					else:
+							header("Location: index.php?page=login");
+					endif;
 
 		}
 
