@@ -53,7 +53,7 @@
 						echo '<p class="sucess">'.$sucess.'</p>';
 					}
 				}
-
+			
 				echo $this->render("src/template/Login/logado.php", array());
 
     		?>

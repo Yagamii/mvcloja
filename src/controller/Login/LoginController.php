@@ -21,12 +21,12 @@
 						$_SESSION['usuario'] = $logado['usuario'];
 						$_SESSION['id_nivel'] = $logado['id_nivel'];
 					endforeach;
-					
+
 						$_SESSION['alert_login'] = true;
 
 					//Após logar, joga o usuario de volta a pagina inicial
-					header("Location: index.php");
-
+						header("Location: index.php");
+						exit();
 				}catch(Exception $e){
 					MsgHandler::setError($e->getMessage());
 				}

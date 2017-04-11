@@ -1,5 +1,5 @@
 <?php
-  if($_SESSION['alert_login'] === true):
+  if(@$_SESSION['alert_login'] === true):
 ?>
     <script>
 
