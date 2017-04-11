@@ -1,10 +1,13 @@
-<script>
+<?php
+  if($_SESSION['alert_login'] === true):
+?>
+    <script>
 
-    logado();
+        logado();
 
-</script>
-<script>
+    </script>
 
-    window.location = 'index.php';
-
-</script>
+<?php
+    $_SESSION['alert_login'] = false;
+  endif;
+?>

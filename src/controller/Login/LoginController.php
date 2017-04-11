@@ -20,27 +20,18 @@
 						$_SESSION['id_usuario'] = $logado['id_usuario'];
 						$_SESSION['usuario'] = $logado['usuario'];
 						$_SESSION['id_nivel'] = $logado['id_nivel'];
-						$_SESSION['logado'] = true;
 					endforeach;
+					
+						$_SESSION['alert_login'] = true;
 
 					//Após logar, joga o usuario de volta a pagina inicial
-					header("Location: index.php?page=login&action=logado");
+					header("Location: index.php");
 
 				}catch(Exception $e){
 					MsgHandler::setError($e->getMessage());
 				}
 
 			endif;
-
-		}
-
-		public function logado(){
-
-					if($_SESSION['logado'] === true):
-
-					else:
-							header("Location: index.php?page=login");
-					endif;
 
 		}
 
