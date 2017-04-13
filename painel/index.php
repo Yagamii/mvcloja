@@ -4,7 +4,7 @@
 
     ini_set("display_errors", 1);
 
-    App::ini();
+    App::init();
 
     $Dispatcher = new Dispatcher();
-    $Dispatcher->Dispatcher();
+    $Dispatcher->Dispatch();

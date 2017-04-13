@@ -38,8 +38,8 @@
         endforeach;
 
         //Faz a chamada dos arquivos da Controller e View da pagina atual, utilizando valor definido no Fuseaction
-        require_once(self::$app_path."src/controller/".ucfirst(Fuseaction)."/".ucfirst(Fuseaction)."Controller.php");
-        require_once(self::$app_path."src/view/".ucfirst(Fuseaction)."/".ucfirst(Fuseaction)."View.php");
+        require_once(self::$app_path."/src/controller/".ucfirst(Fuseaction)."/".ucfirst(Fuseaction)."Controller.php");
+        require_once(self::$app_path."/src/view/".ucfirst(Fuseaction)."/".ucfirst(Fuseaction)."View.php");
       }
 
       //função para efetuar conexao com o db por PDO

@@ -41,11 +41,11 @@
             throw new Exception("O arquivo ".$template_file." de template não existe.");
 
           //renderiza o layout utilizando como conteudo a pagina de template renderizada e chamando suas variaveis
-          echo $view->render($layout_file, [ "content" => $view->render($template_file, $Controller->GetTemplateVars())]);
+          echo $view->render($layout_file, [ "content" => $View->render($template_file, $Controller->GetTemplateVars())]);
 
         }catch(Exception $e){
           //Renderiza pagina de erro e exibe ele na tela
-          echo $view->render("src/template/Layouts/404.php", ["errors" => $e->getMessage()]);
+          echo $View->render("src/template/Layouts/404.php", ["errors" => $e->getMessage()]);
         }
 
       }
