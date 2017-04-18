@@ -20,7 +20,7 @@
             throw new Exception("O método ".$action."() não existe!");
 
           //Passando na verificação, chama a função
-          $Controller->$action;
+          $Controller->$action();
 
           //Verifica se a controller ja possui um nome de template, caso não tenha, é definido o nome da action
           if($Controller->template_name === NULL):
@@ -41,7 +41,7 @@
             throw new Exception("O arquivo ".$template_file." de template não existe.");
 
           //renderiza o layout utilizando como conteudo a pagina de template renderizada e chamando suas variaveis
-          echo $view->render($layout_file, [ "content" => $View->render($template_file, $Controller->GetTemplateVars())]);
+          echo $View->render($layout_file, [ "content" => $View->render($template_file, $Controller->GetTemplateVars())]);
 
         }catch(Exception $e){
           //Renderiza pagina de erro e exibe ele na tela

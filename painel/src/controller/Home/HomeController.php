@@ -5,7 +5,7 @@
       public $loadModels = [];
 
       public function index(){
-        
+
       }
 
     }
