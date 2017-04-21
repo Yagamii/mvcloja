@@ -45,7 +45,7 @@
 
         }catch(Exception $e){
           //Renderiza pagina de erro e exibe ele na tela
-          echo $View->render("src/template/Layouts/404.php", ["errors" => $e->getMessage()]);
+          echo $View->render("src/template/Layouts/404.php", ["error" => $e->getMessage()]);
         }
 
       }
