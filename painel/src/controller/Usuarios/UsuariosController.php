@@ -5,6 +5,21 @@
       public $loadModels = ["UsuariosModel"];
 
       public function index(){
+
+        if(isset($_POST['cadastrar'])):
+
+          $senha = md5($_POST['senha']);
+          $dados = [$_POST['nome'], $_POST['sobrenome'], $_POST['usuario'], $_POST['email'], $senha, 3];
+
+          $this->UsuariosModel->addAdmin($dados);
+
+          $_SESSION['alert_cadastro'] = TRUE;
+
+          header("Location: index.php?page=usuarios");
+          exit();
+
+        endif;
+
           //Receber estatisticas
           $this->getStatistics();
 
@@ -14,6 +29,7 @@
           $this->set("Usuarios", $listUser);
 
       }
+
       //Chama a função de receber usuarios da model e retorna os valores recebidos
       public function listUsers(){
 

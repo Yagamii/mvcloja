@@ -4,6 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title><?php echo ucfirst(Fuseaction);?></title>
 	<link rel="stylesheet" href="src/template/Layouts/style.css" type="text/css" media="screen" />
+	<script language="javascript" type="text/javascript" src="src/template/Layouts/functions.js" ></script>
 </head>
 
 <body>
@@ -29,6 +30,7 @@
         <li><a href="index.php?page=produtos">Produtos</a></li>
     </ul>
 </div>
+<?php echo $this->render("src/template/Usuarios/cadastrado.php", array()); ?>
 <?php
 				if(MsgHandler::getError()){
 					foreach(MsgHandler::getError() as $erro){

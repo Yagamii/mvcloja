@@ -1,7 +1,7 @@
 <div class="content-border">
 	<div class="content">
     	<h1>Adicionar Administrador</h1>
-        <form name="addadmin" action="index.php?page=usuarios&action=adicionar" method="post">
+        <form name="addadmin" action="index.php?page=usuarios" method="post">
         	<br/>
             <label>Nome:</label><input type="text" name="nome" /><br/><br/>
             <label style="margin-left: -30px">Sobrenome:</label><input type="text" name="sobrenome" /><br/><br/>

@@ -13,9 +13,20 @@
       //Recebe dados do usuario de acordo com a id
       function getUserById($id){
 
-
+        $query = $this->query()->select("")->all();
 
       }
+
+      function addAdmin($dados = array()){
+
+        $campos = ['nome', 'sobrenome', 'usuario', 'email', 'pass', 'id_nivel'];
+
+        $query = $this->query()->insert($campos, $dados)->execute();
+
+        return $query;
+
+      }
+
       //Receber quantidade de usuarios comuns cadastrados
       function getCountUsers(){
 
