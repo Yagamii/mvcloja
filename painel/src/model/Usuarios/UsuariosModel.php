@@ -13,7 +13,16 @@
       //Recebe dados do usuario de acordo com a id
       function getUserById($id){
 
-        $query = $this->query()->select("")->all();
+        $query = $this->query()->select()->where(["id_usuario" => $id])->all();
+
+        return $query;
+      }
+
+      function updateUser($dados, $id){
+
+        $query = $this->query()->update()->set($dados)->where(["usuarios.id_usuario =" => $id])->execute();
+
+        return $query;
 
       }
 
