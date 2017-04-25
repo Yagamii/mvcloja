@@ -36,6 +36,13 @@
 
       }
 
+      function delUser($id){
+
+        $query = $this->query()->delete()->where(["usuarios.id_usuario =" => $id])->execute();
+        return $query;
+
+      }
+
       //Receber quantidade de usuarios comuns cadastrados
       function getCountUsers(){
 

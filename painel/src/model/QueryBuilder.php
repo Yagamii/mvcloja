@@ -49,7 +49,7 @@
 			return $this;
 
 		}
-    
+
 		public function all(){
 
 			$query = $this->execute();
@@ -148,7 +148,7 @@
 		public function delete(){
 
 			$this->_query = " DELETE FROM ".$this->table;
-
+			
 			return $this;
 		}
 

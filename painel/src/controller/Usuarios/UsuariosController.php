@@ -60,6 +60,17 @@
 
       }
 
+      public function deletar(){
+
+        if(is_numeric($_GET['id']) && $_SESSION['id_nivel'] === '3'):
+
+          $this->UsuariosModel->delUser($_GET['id']);
+
+          header("Location: index.php?page=usuarios");
+        endif;
+
+      }
+
       //Chama a função de receber usuarios da model e retorna os valores recebidos
       public function listUsers(){
 

@@ -33,8 +33,16 @@
                 <td><?php echo $key['email'];?></td>
                 <td><?php echo $key['data'];?></td>
                 <td><?php echo $key['nivel']; ?></td>
-                <td><a href="index.php?page=usuarios&action=editar&id=<?php echo $key['id_usuario']; ?>" title="Editar <?php echo $key['usuario'];?>"><img src="src/template/Includes/icone-editar.png" width="18" height="18"/></a></td>
-                <td><a href="index.php?page=usuarios&action=apagar&id=<?php echo $key['id_usuario']; ?>" title="Apagar <?php echo $key['usuario'];?>"><img src="src/template/Includes/icone-apagar.png" width="18" height="18"/></a></td>
+                <td>
+									<a href="index.php?page=usuarios&action=editar&id=<?php echo $key['id_usuario']; ?>" title="Editar <?php echo $key['usuario'];?>">
+										<img src="src/template/Includes/icone-editar.png" width="18" height="18"/>
+									</a>
+								</td>
+                <td>
+									<a href="index.php?page=usuarios&action=deletar&id=<?php echo $key['id_usuario']; ?>" onclick="return confirm('Tem certeza que deseja excluir o Usuario?')" title="Apagar <?php echo $key['usuario'];?>">
+										<img src="src/template/Includes/icone-apagar.png"  width="18" height="18"/>
+									</a>
+								</td>
             </tr>
         <?php endforeach; ?>
         </table>
