@@ -39,7 +39,7 @@
       function delUser($id){
 
         $query = $this->query()->delete()->where(["usuarios.id_usuario =" => $id])->execute();
-        return $query;
+
 
       }
 
