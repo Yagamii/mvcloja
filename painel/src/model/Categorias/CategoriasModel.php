@@ -37,6 +37,7 @@
         $query = $this->query()->delete()->where(["id_categoria =" => $id])->execute();
 
       }
+
     }
 
  ?>
