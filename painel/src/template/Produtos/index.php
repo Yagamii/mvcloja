@@ -1,7 +1,7 @@
 <div class="content-border">
 	<div class="content">
 		<h1>Adicionar produto</h1>
-		<form action="index.php?page=produtos&action=adicionar" enctype="multipart/form-data" method="POST" name="adicionarProduto">
+		<form action="index.php?page=produtos" enctype="multipart/form-data" method="POST" name="adicionarProduto">
 			<p>
 				<label style="margin-left: 5px">Nome:</label>
 				<input style="margin-left: 5px" type="text" name="nome" size="35px" value="<?php if(isset($_POST['nome']))echo $_POST['nome'];?>"/>
@@ -28,7 +28,7 @@
 			</p>
 			<p>
 				<label>Imagem:</label>
-				<input type="hidden" name="MAX_FILE_SIZE" value="30000" />
+				<input type="hidden" name="MAX_FILE_SIZE" value="50000" />
 				<input type="file" name="imagem" />
 			</p><br/>
 			<p>

@@ -18,6 +18,12 @@
 
       }
 
+      public function addProduto($rows = array(), $values = array()){
+
+        $query = $this->query()->insert($rows, $values)->execute();
+
+      }
+
     }
 
  ?>
