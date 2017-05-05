@@ -1,5 +1,5 @@
 function cadastrado(){
 
-    alert("Administrador cadastrado com sucesso!");
+    alert("Cadastro efetuado com sucesso!");
 
 }
