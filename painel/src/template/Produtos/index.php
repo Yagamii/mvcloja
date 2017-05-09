@@ -28,7 +28,7 @@
 			</p>
 			<p>
 				<label>Imagem:</label>
-				<input type="hidden" name="MAX_FILE_SIZE" value="50000" />
+				<input type="hidden" name="MAX_FILE_SIZE" value="500000" />
 				<input type="file" name="imagem" />
 			</p><br/>
 			<p>
@@ -56,8 +56,16 @@
 					<td><?php echo $row['categoria']; ?></td>
 					<td><?php echo 'R$' .$row['valor'];?></td>
 					<td><?php echo $row['estoque'];?></td>
-					<td><a href="index.php?page=produtos&action=editar&id=<?php echo $row['id_produto'];?>"><img src="src/template/Includes/icone-editar.png" width="18" height="18" /></a></td>
-					<td><a href="index.php?page=produtos&action=apagar&id=<?php echo $row['id_produto'];?>"><img src="src/template/Includes/icone-apagar.png" width="18" height="18"/></a></td>
+					<td>
+						<a href="index.php?page=produtos&action=editar&id=<?php echo $row['id_produto'];?>">
+							<img src="src/template/Includes/icone-editar.png" width="18" height="18" />
+						</a>
+					</td>
+					<td>
+						<a href="index.php?page=produtos&action=apagar&id=<?php echo $row['id_produto'];?>" onclick="return confirm('Tem certeza que deseja excluir o produto?')">
+							<img src="src/template/Includes/icone-apagar.png" width="18" height="18"/>
+						</a>
+					</td>
 				</tr>
 			<?php endforeach; ?>
 		</table>

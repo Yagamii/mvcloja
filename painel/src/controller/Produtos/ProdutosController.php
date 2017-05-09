@@ -28,7 +28,7 @@
                 throw new Exception("Por favor, preencha todos os campos");
               //Chama a função que verifica o formato do arquivo que foi enviado, para checar se é uma imagem
               $thumb = $this->checkImage($_FILES['imagem']['type'], $_FILES['imagem']['name'], $_FILES['imagem']['tmp_name']);
-              print_r($thumb);
+
               //Caso tenha retornado falso, apresenta mensagem
               if(!$thumb)
                 throw new Exception("Imagem não é válida.");
@@ -67,6 +67,60 @@
   				//caso o formato do arquivo upado não esteja dentro da array, retornara falso, definindo assim que o formato do arquivo é invalido
   				return false;
   				}
+
+      }
+
+      function apagar(){
+
+        if(is_numeric($_GET['id']) && $_SESSION['id_nivel'] === '3'):
+
+          $this->ProdutosModel->delProduto($_GET['id']);
+
+          header("Location: index.php?page=produtos");
+
+        endif;
+
+      }
+
+      function editar(){
+
+        //Carrega todas categorias para ser exibido como option para add um novo produto
+        $categorias = $this->CategoriasModel->getCategorias();
+
+        $this->set("categorias", $categorias);
+        //Carrega informações do produto desejado de acordo com seu id
+        $produto = $this->ProdutosModel->getProdutoById($_GET['id']);
+
+        $this->set("produto", $produto);
+
+        if(isset($_POST['editarProduto'])):
+          try{
+              if(empty($_POST['nome']) || empty($_POST['descricao']) || empty($_POST['valor']) || empty($_POST['quantidade']))
+                throw new Exception("Não deixe nenhum campo vazio");
+
+              if(!empty($_FILES['imagem']['name'])):
+
+                $thumb = $this->checkImage($_FILES['imagem']['type'], $_FILES['imagem']['name'], $_FILES['imagem']['tmp_name']);
+
+                if(!$thumb)
+                  throw new Exception("Imagem invalida!");
+
+                $dados = ["nome_produto" => $_POST['nome'], "valor" => $_POST['valor'], "descricao" => $_POST['descricao'], "id_categoria" => $_POST['categoria'], "thumb" => $thumb, "estoque" => $_POST['quantidade'], "promo" => $_POST['promo']];
+
+                $this->ProdutosModel->updateProduto($dados, $_GET['id']);
+
+                header("Location: index.php?page=produtos");
+              else:
+                $dados = ["nome_produto" => $_POST['nome'], "valor" => $_POST['valor'], "descricao" => $_POST['descricao'], "id_categoria" => $_POST['categoria'], "estoque" => $_POST['quantidade'], "promo" => $_POST['promo']];
+
+                $this->ProdutosModel->updateProduto($dados, $_GET['id']);
+
+                header("Location: index.php?page=produtos");
+              endif;
+          }catch(Exception $e){
+            MsgHandler::setError($e->getMessage());
+          }
+        endif;
 
       }
 
