@@ -67,6 +67,15 @@
         return $query;
 
       }
+
+      function login($login, $pass){
+
+        $query = $this->query()->select()->where(["usuarios.usuario =" => $login, "usuarios.pass =" => $pass])->all();
+
+        return $query;
+
+      }
+
     }
 
  ?>

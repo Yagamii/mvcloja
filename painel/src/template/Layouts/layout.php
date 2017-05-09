@@ -48,9 +48,6 @@
 </div>
 </div>
 <?php }else{
-	if(!isset($_GET['action'])){
-		MsgHandler::verificarUsuario($_SESSION['id_usuario']);
-	}
 
 	if(MsgHandler::getError()){
 					foreach(MsgHandler::getError() as $erro){
