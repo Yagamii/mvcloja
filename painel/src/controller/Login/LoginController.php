@@ -6,6 +6,7 @@
 
       function index(){
 
+
         if(isset($_POST['logarUser'])):
 
           try{
@@ -35,6 +36,8 @@
           }
 
         endif;
+
+        
 
       }
 

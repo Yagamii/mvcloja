@@ -9,7 +9,9 @@
 
 <body>
 
-<?php if(isset($_SESSION['id_usuario'])){ ?>
+<?php
+	DefaultController::checkUser();
+if(isset($_SESSION['id_usuario'])){ ?>
 
 <a href="index.php?page=home">
 <div class="header-logo">
@@ -32,6 +34,8 @@
 </div>
 <?php echo $this->render("src/template/Usuarios/cadastrado.php", array()); ?>
 <?php
+
+
 				if(MsgHandler::getError()){
 					foreach(MsgHandler::getError() as $erro){
 						echo '<p class="error" align="center">'.$erro.'</p>';

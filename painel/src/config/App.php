@@ -10,7 +10,7 @@
         self::$app_path = dirname(dirname(__DIR__));
 
         session_start();
-
+        
         self::defineConstants();
         self::includeMVC();
       }

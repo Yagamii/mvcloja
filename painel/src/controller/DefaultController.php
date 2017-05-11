@@ -37,6 +37,16 @@
           return $this->template_vars;
 
         }
+
+        public static function checkUser(){
+
+          if(!isset($_SESSION['usuario']) && Fuseaction != 'login'):
+
+            header("Location: index.php?page=login");
+
+          endif;
+
+        }
     }
 
  ?>
