@@ -17,8 +17,10 @@
 			if(isset($_POST['addCarrinho']))
 				$this->addCarrinho($_GET['id'], $_POST['quantidade']);
 
-			if(isset($_POST['addcomentario']))
+			if(isset($_POST['addcomentario'])):
 				$this->ComentariosModel->addComentario([$_SESSION['id_usuario'], $_POST['comentario'], $_GET['id']]);
+				header("Location: index.php?page=produto&id=".$_GET['id']);
+			endif;
 
 		}
 

@@ -40,6 +40,14 @@
 
         public static function checkUser(){
 
+          if(isset($_SESSION['id_nivel']) && $_SESSION['id_nivel'] < '3'):
+            $_SESSION = [];
+
+            session_destroy();
+
+            header("Location: index.php?page=login");
+          endif;
+
           if(!isset($_SESSION['usuario']) && Fuseaction != 'login'):
 
             header("Location: index.php?page=login");
