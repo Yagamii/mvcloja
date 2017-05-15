@@ -25,12 +25,12 @@
 						<?php echo $key['categoria'];?>
 					</td>
 					<td>
-						<a href="index.php?page=categorias&action=editar&id=<?php echo $key['id_categoria'];?>">
+						<a href="index.php?page=categorias&action=editar&id=<?php echo $key['id_categoria'];?>" title="Apagar <?php echo $key['categoria'];?>">
               <img src="src/template/Includes/icone-editar.png" width="18" height="18" />
             </a>
 					</td>
 					<td>
-						<a href="index.php?page=categorias&action=deletar&id=<?php echo $key['id_categoria'];?>" onclick="return confirm('Tem certeza que deseja excluir a Categoria?')">
+						<a href="index.php?page=categorias&action=deletar&id=<?php echo $key['id_categoria'];?>" onclick="return confirm('Tem certeza que deseja excluir a categoria: \'<?php echo $key['categoria'];?>\'?')" title="Apagar <?php echo $key['categoria'];?>">
               <img src="src/template/Includes/icone-apagar.png" width="18" height="18"/>
             </a>
 					</td>
