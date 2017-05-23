@@ -33,8 +33,16 @@
 		}
 
 		function finalizaCompra($produto, $quantidade){
-			
+
 			$query = $this->query()->update()->set(["estoque" => "estoque - ".$quantidade.""])->where(["produtos.id_produto =" => $produto])->all();
+
+			return $query;
+
+		}
+
+		function checkQuantity($id){
+
+			$query = $this->query()->select("produtos.estoque")->where(["produtos.id_produto =" => $id])->all();
 
 			return $query;
 

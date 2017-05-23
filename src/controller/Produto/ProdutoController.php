@@ -10,6 +10,10 @@
 
 			$this->set("dadosProduto", $dados);
 
+			$quantidade = $this->ProdutosModel->checkQuantity($_GET['id']);
+
+			$this->set("quantidade", $quantidade);
+
 			$comentarios = $this->ComentariosModel->getComentariosByProduto($_GET['id']);
 
 			$this->set("comentario", $comentarios);

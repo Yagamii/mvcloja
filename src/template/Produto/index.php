@@ -5,12 +5,17 @@
 	</div>
 
 	<div class="info-produto">
-		<p style="font-size: 38px; color: red; font-weight: bold; font-family:  Arial, Helvetica, Verdana, sans-serif;">R$ <?php echo $dadosProduto[0]['valor'];?></p>
+		<p style="font-size: 38px; color: green; font-weight: bold; font-family:  Arial, Helvetica, Verdana, sans-serif;">R$ <?php echo $dadosProduto[0]['valor'];?></p>
 		<br/><br/>
 		<form action="index.php?page=produto&id=<?php echo $_GET['id']; ?>" method="post" name="adicionaraocarinho">
-		<label style="margin-left: 30px;">Quantidade: </label> <input type="number" name="quantidade" value="1" min="1" style="width: 40px; height: 30px" />
-		<input type="hidden" name="addCarrinho" value="TRUE" />
-		<input style="width: 100px; height: 34px; font-size: 20px; margin-left: 5px" type="submit" name="adicionar" value="+Carrinho" />
+		<?php if($quantidade[0]['estoque'] > '0'):?>
+			<label style="margin-left: 30px;">Quantidade: </label>
+		 		<input type="number" name="quantidade" value="1" min="1" max="<?php echo $quantidade[0]['estoque'];?>" style="width: 40px; height: 30px" />
+				<input type="hidden" name="addCarrinho" value="TRUE" />
+				<input style="width: 100px; height: 34px; font-size: 20px; margin-left: 5px" type="submit" name="adicionar" value="+Carrinho" />
+		<?php else: ?>
+				<p align="center" style="font-size: 24px; color: red; font-weight: bold" >Produto fora de estoque</p>
+		<?php endif; ?>
 		</form>
 	</div>
 

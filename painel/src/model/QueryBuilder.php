@@ -148,7 +148,7 @@
 		public function delete(){
 
 			$this->_query = " DELETE FROM ".$this->table;
-			
+
 			return $this;
 		}
 
