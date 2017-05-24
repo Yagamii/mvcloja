@@ -27,6 +27,11 @@
 
 	<div>
 		<h2 align="center" style="padding-bottom: 15px">Comentários</h2>
+		<?php if(empty($comentario)):?>
+			<p style="text-align: center; margin-top: -20px; margin-bottom: 20px; color: brown">
+				Nenhum comentário até agora. Seja o primeiro a comentar logo abaixo. :D
+			</p>
+		<?php else: ?>
 		<?php foreach($comentario as $key => $value): ?>
 			<p style="border-top: 1px dashed grey"><?php echo '<b>'.$value['usuario'].'</b> em '.$value['data']; ?>:</p>
 			<p style="padding-left: 50px; padding-bottom: 10px; margin-top: -10px"><?php echo $value['mensagem'];?></p>
@@ -37,6 +42,7 @@
 			</p>
 			<?php endif; ?>
 		<?php endforeach; ?>
+		<?php endif; ?>
 	</div>
 
 	<div>
