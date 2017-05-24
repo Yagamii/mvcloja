@@ -53,7 +53,7 @@
 						echo '<p class="sucess">'.$sucess.'</p>';
 					}
 				}
-			
+
 				echo $this->render("src/template/Login/logado.php", array());
 
     		?>
@@ -63,6 +63,7 @@
     		?>
     	</div>
     <div id="footer">
+			Todos os direitos reservados a Yago Gomes.
     </div>
 </body>
 </html>

@@ -30,9 +30,14 @@
 
 		public function delComentario(){
 
-				$this->ComentariosModel->delComentario($_GET['cid']);
-				header("Location: index.php?page=produto&id=".$_GET['id']);
 
+				if(isset($_SESSION['id_nivel']) && $_SESSION['id_nivel'] === '3'):
+					$this->ComentariosModel->delComentario($_GET['cid']);
+					header("Location: index.php?page=produto&id=".$_GET['id']);
+				else:
+
+					MsgHandler::setError('Você não tem permissão para executar essa ação!');
+				endif;
 		}
 
 		public function addCarrinho($id, $quantidade){
