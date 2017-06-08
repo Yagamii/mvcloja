@@ -2,44 +2,72 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title><?php
 				//Utiliza o a pagina do Fuseaction para alterar o titulo da pagina no navegador
 				echo ucfirst(Fuseaction);
 			?>
     </title>
-	<link rel="stylesheet" href="src/template/Layouts/style.css" type="text/css" media="screen" />
+	<link href="src/template/Layouts/css/bootstrap.css" rel="stylesheet">
+	<!--<link rel="stylesheet" href="src/template/Layouts/style.css" type="text/css" media="screen" />-->
 	<script language="javascript" type="text/javascript" src="src/template/Layouts/functions.js" ></script>
+	<!--[if lt IE 9]>
+	 <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+ <![endif]-->
 </head>
+<body class="container">
+	<!-- Definições inciais do cabeçalho e aparencia do botão para mobile -->
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-main" aria-expanded="false">
+					<span class="sr-only">Abrir menu</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="index.php">Mercatron</a>
+			</div>
 
-<body>
-	<div id="header">
-		<h1>Mercatron</h1>
-		<h2>Apenas para testes</h2>
-	</div>
-	<div id="navigation">
-		<ul>
-			<li><a href="index.php">Home</a></li>
-			<li><a href="index.php?page=promocoes">Promoções</a></li>
-            <li><a href="index.php?page=categorias">Categorias</a></li>
-			<li><a href="index.php?page=cadastro">Cadastro</a></li>
-			<li><?php if(isset($_SESSION['id_usuario'])){
-            			echo '<div class="dropdown"><a href="#"><div class="dropbtn">'.$_SESSION['usuario'].'</div></a>
-								<div class="dropdown-content">';
-									if($_SESSION['id_nivel'] == 3){
-										echo '<a href="painel/index.php?page=home">Admin</a>';
+			<!-- Itens do cabeçalho -->
+
+		<div class="collapse navbar-collapse" id="navbar-main">
+			<ul class="nav navbar-nav">
+				<li><a href="index.php?page=promocoes">Promoções<span class="sr-only">(current)</span></a></li>
+				<li><a href="index.php?page=categorias">Categorias</a></li>
+
+
+			</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="index.php?page=cadastro">Cadastro</a></li>
+					<li class="dropdown">
+						<?php if(isset($_SESSION['id_usuario'])){
+			            			echo '<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">'
+												.$_SESSION['usuario'].
+												'<span class="caret"></span></a>';
+												echo '<ul class="dropdown-menu">';
+												if($_SESSION['id_nivel'] == 3){
+													echo '<li><a href="painel/index.php?page=home">Admin</a></li>';
+												}
+												echo '
+												<li><a href="index.php?page=carrinho">Carrinho <span class="glyphicon glyphicon-shopping-cart">'.count(@$_SESSION['carrinho']).'</span></a></li>
+												<li><a href="index.php?page=login&action=editar&id='.$_SESSION['id_usuario'].'">Editar dados</a></li>
+												<li><a href="index.php?page=login&action=logout">Logout</a></li>
+											</ul>';
+									}else{
+									echo '<a href="index.php?page=login">Login</a>';
 									}
-									echo '
-									<a href="index.php?page=carrinho">Carrinho <div  class="botaocarrinho">'.count(@$_SESSION['carrinho']).'</div></a>
-									<a href="index.php?page=login&action=editar&id='.$_SESSION['id_usuario'].'">Editar dados</a>
-									<a href="index.php?page=login&action=logout">Logout</a>
-								</div>
-								</div>';
-						}else{
-						echo '<a href="index.php?page=login">Login</a>';
-						}
-                        ?></li>
-		</ul>
-	</div>
+			                        ?>
+					</li>
+				</ul>
+		</div>
+		</div>
+	</nav>
+											<!------- -->
+
+
     	<div id="content">
 
     		<?php
@@ -65,5 +93,10 @@
     <div id="footer">
 			Todos os direitos reservados a Yago Gomes.
     </div>
+
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="src/template/Layouts/js/bootstrap.js"></script>
 </body>
 </html>
