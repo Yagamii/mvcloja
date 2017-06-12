@@ -52,7 +52,7 @@
 													echo '<li><a href="painel/index.php?page=home">Admin</a></li>';
 												}
 												echo '
-												<li><a href="index.php?page=carrinho">Carrinho <span class="glyphicon glyphicon-shopping-cart">'.count(@$_SESSION['carrinho']).'</span></a></li>
+												<li><a href="index.php?page=carrinho">Carrinho <span class="badge">'.count(@$_SESSION['carrinho']).'</span></a></li>
 												<li><a href="index.php?page=login&action=editar&id='.$_SESSION['id_usuario'].'">Editar dados</a></li>
 												<li><a href="index.php?page=login&action=logout">Logout</a></li>
 											</ul>';
@@ -65,6 +65,22 @@
 		</div>
 		</div>
 	</nav>
+
+	<div class="row">
+
+		<?php
+		echo $content;
+		?>
+
+	</div>
+
+	<footer>
+		<div class="container">
+			<div class="row">
+				<div class="panel-footer"><span class="text-muted">Todos os direitos reservados a Yago Gomes.</span></div>
+			</div>
+		</div>
+	</footer>
 											<!------- -->
 
 
@@ -86,13 +102,7 @@
 
     		?>
 
-    		<?php
-				echo $content;
-    		?>
     	</div>
-    <div id="footer">
-			Todos os direitos reservados a Yago Gomes.
-    </div>
 
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
