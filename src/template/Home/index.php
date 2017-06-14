@@ -2,16 +2,16 @@
   <h1 align="center">Últimos produtos</h1>
 </div>
 <?php
-foreach($produtos as $v):
+foreach($produtos as $value):
 ?>
 <div class="col-sm-6 col-md-3" style="height: 490px">
   <div class="thumbnail">
-    <img style="width:220px; height:220px" src="src/template/Includes/thumb/<?php echo $v['thumb']; ?>" alt="<?php echo $v['nome_produto'];?>"/>
+    <img style="width:220px; height:220px" src="src/template/Includes/thumb/<?php echo $value['thumb']; ?>" alt="<?php echo $value['nome_produto'];?>"/>
     <div class="caption">
-      <h3><a href="index.php?page=produto&id=<?php echo $v['id_produto']; ?>" ><?php echo $v['nome_produto']; ?></a></h3>
-      <p class="desc-produto"><?php echo $v['descricao']; ?> </p>
+      <h3><a href="index.php?page=produto&id=<?php echo $value['id_produto']; ?>" ><?php echo $value['nome_produto']; ?></a></h3>
+      <p><?php echo $value['descricao']; ?> </p>
       <div align="right">
-        <span class="btn btn-default">R$<?php echo $v['valor']; ?></span> <a href="index.php?page=produto&id=<?php echo $v['id_produto']; ?>" class="btn btn-primary" role="button">Ver</a>
+        <span class="btn btn-default" style="color: green; font-weight: bold">R$<?php echo $value['valor']; ?></span>
       </div>
     </div>
   </div>
