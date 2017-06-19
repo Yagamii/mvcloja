@@ -69,6 +69,22 @@
 	<div class="row">
 
 		<?php
+			//Classe estatica sempre verificada para reconhecer mensagem de errou ou sucesso
+		if(MsgHandler::getError()){
+			foreach(MsgHandler::getError() as $erro){
+				echo '<div class="alert alert-danger" role="alert">'.$erro.'</div>';
+			}
+		}elseif(MsgHandler::getSucess()){
+			foreach(MsgHandler::getSucess() as $sucess){
+				echo '<div class="alert alert-success" role="alert">'.$sucess.'</div>';
+			}
+		}
+
+		echo $this->render("src/template/Login/logado.php", array());
+
+		?>
+
+		<?php
 		echo $content;
 		?>
 
@@ -81,28 +97,7 @@
 			</div>
 		</div>
 	</footer>
-											<!------- -->
 
-
-    	<div id="content">
-
-    		<?php
-    			//Classe estatica sempre verificada para reconhecer mensagem de errou ou sucesso
-				if(MsgHandler::getError()){
-					foreach(MsgHandler::getError() as $erro){
-						echo '<p class="error" align="center">'.$erro.'</p>';
-					}
-				}elseif(MsgHandler::getSucess()){
-					foreach(MsgHandler::getSucess() as $sucess){
-						echo '<p class="sucess">'.$sucess.'</p>';
-					}
-				}
-
-				echo $this->render("src/template/Login/logado.php", array());
-
-    		?>
-
-    	</div>
 
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
