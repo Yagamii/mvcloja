@@ -92,8 +92,8 @@
 
 	<footer>
 		<div class="container">
-			<div class="row">
-				<div class="panel-footer"><span class="text-muted">Todos os direitos reservados a Yago Gomes.</span></div>
+			<div class="row ">
+				<div class="panel-footer "><span class="text-muted col-sm-offset-1">Todos os direitos reservados a Yago Gomes.</span></div>
 			</div>
 		</div>
 	</footer>

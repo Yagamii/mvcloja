@@ -30,7 +30,7 @@
 	</div>
 <?php echo '<p align="center">'. $dadosProduto[0]['descricao'].'</p>'; ?>
 
-	<div>
+	<div class="col-sm-10 col-sm-offset-1">
 		<div class="page-header">
 		<h2 align="center" style="padding-bottom: 15px">Comentários</h2>
 	</div>
@@ -53,7 +53,7 @@
 	</div>
 
 
-	<div>
+	<div class="col-sm-10 col-sm-offset-1">
 		<?php if(isset($_SESSION['id_usuario'])): ?>
 		<form action="index.php?page=produto&id=<?php echo $_GET['id'];?>" name="formComentar" method="POST">
 			<div class="form-group">
