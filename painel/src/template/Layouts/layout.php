@@ -5,6 +5,13 @@
 	<title><?php echo ucfirst(Fuseaction);?></title>
 	<link rel="stylesheet" href="src/template/Layouts/style.css" type="text/css" media="screen" />
 	<script language="javascript" type="text/javascript" src="src/template/Layouts/functions.js" ></script>
+	<link href="../src/template/Layouts/css/bootstrap.css" rel="stylesheet">
+	<!--<link rel="stylesheet" href="src/template/Layouts/style.css" type="text/css" media="screen" />-->
+	<script language="javascript" type="text/javascript" src="../src/template/Layouts/functions.js" ></script>
+	<!--[if lt IE 9]>
+	 <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+ <![endif]-->
 </head>
 
 <body>
@@ -66,5 +73,11 @@ if(isset($_SESSION['id_usuario'])){ ?>
 	echo $content;
 
 } ?>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="../src/template/Layouts/js/bootstrap.js"></script>
+
 </body>
 </html>
