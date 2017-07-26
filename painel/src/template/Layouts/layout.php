@@ -2,8 +2,15 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title><?php echo ucfirst(Fuseaction);?></title>
-	<link rel="stylesheet" href="src/template/Layouts/style.css" type="text/css" media="screen" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>
+		<?php
+			echo ucfirst(Fuseaction);
+		?>
+	</title>
+
+
 	<script language="javascript" type="text/javascript" src="src/template/Layouts/functions.js" ></script>
 	<link href="../src/template/Layouts/css/bootstrap.css" rel="stylesheet">
 	<!--<link rel="stylesheet" href="src/template/Layouts/style.css" type="text/css" media="screen" />-->
@@ -14,48 +21,63 @@
  <![endif]-->
 </head>
 
-<body>
-
 <?php
 	DefaultController::checkUser();
 if(isset($_SESSION['id_usuario'])){ ?>
 
-<a href="index.php?page=home">
-<div class="header-logo">
-	<p>Megatron</p><span>PAINEL</span>
-</div>
-</a>
-<div class="header">
-	<ul>
-    	<li><a href="index.php?page=login&action=logout">Logout</a></li>
-        <li>Ola, <?php echo $_SESSION['usuario']; ?></li>
-    </ul>
-</div>
+<body class="container-fluid">
+	<nav class="navbar navbar-inverse" >
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="index.php">
+				<div class="header-logo">
+					<p>Megatron <span style="font-size: 12px">PAINEL</span></p>
+				</div>
+				</a>
+			</div>
 
-<div class="sidebar">
-	<ul>
-    	<li><a href="index.php?page=usuarios">Usuarios</a></li>
-        <li><a href="index.php?page=categorias">Categorias</a></li>
-        <li><a href="index.php?page=produtos">Produtos</a></li>
-    </ul>
-</div>
+			<ul class="nav navbar-nav navbar-right">
+		    	<li><a href="index.php?page=login&action=logout">Logout</a></li>
+		      <li><p class="navbar-text">Ola, <?php echo $_SESSION['usuario']; ?></p></li>
+		  </ul>
+		</div>
+	</nav>
+
+
+
+
+
+<div class="container-fluid">
+	<div class="row row-offcanvas row-offcanvas-left">
+		<div class="col-xs-6 col-sm-2 sidebar-offcanvas" id="sidebar" role="navigation">
+			<div class="sidebar-nav">
+				<ul class="nav">
+		    	<li><a href="index.php?page=usuarios">Usuarios</a></li>
+		        <li><a href="index.php?page=categorias">Categorias</a></li>
+		        <li><a href="index.php?page=produtos">Produtos</a></li>
+		    </ul>
+			</div>
+		</div>
+
 <?php echo $this->render("src/template/Usuarios/cadastrado.php", array()); ?>
+<div class="col-xs-12 col-sm-9">
 <?php
 
 
 				if(MsgHandler::getError()){
 					foreach(MsgHandler::getError() as $erro){
-						echo '<p class="error" align="center">'.$erro.'</p>';
+						echo '<div class="alert alert-danger" role="alert">'.$erro.'</div>';
 					}
 				}elseif(MsgHandler::getSucess()){
 					foreach(MsgHandler::getSucess() as $sucess){
-						echo '<p class="sucess" align="center">'.$sucess.'</p>';
+						echo '<div class="alert alert-success" role="alert">>'.$sucess.'</div>';
 					}
 				}
 
 				echo $content;
 
     		?>
+</div>
 </div>
 </div>
 <?php }else{

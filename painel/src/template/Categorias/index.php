@@ -1,19 +1,25 @@
 <div class="content-border">
-	<div class="content">
-		<h1>Adicionar categoria</h1>
-			<form action="index.php?page=categorias" method="POST" name="addcategoria">
-				<br/>
-				<label>Nome: </label><input type="text" name="categoria" />
-				<br/><br/>
-				<input type="hidden" name="adicionar" value="TRUE" />
-				<input type="submit" onclick="return alert('Categoria adicionada com sucesso.')" name="addcat" value="Adicionar" />
-				<br/><br/>
+	<div class="col-sm-5 well">
+		<h1 align="center">Adicionar categoria</h1>
+			<form action="index.php?page=categorias" class="form-horizontal" method="POST" name="addcategoria">
+				<div class="form-group">
+					<label class="control-label col-sm-offset-1 col-sm-2" for="categoria">Nome: </label>
+					<div class="col-sm-6">
+						<input type="text" class="form-control" name="categoria" id="categoria" value="<?php if(isset($_POST['categoria'])) echo $_POST['categoria'];?>" placeholder="Categoria"/>
+					</div>
+				</div>
+					<div class="form-group">
+						<div class="col-sm-offset-4 col-sm-4">
+							<input type="hidden" name="adicionar" value="TRUE" />
+							<button type="submit" class="btn btn-default" onclick="return alert('Categoria adicionada com sucesso.')" name="addcat">Adicionar</button>
+						</div>
+					</div>
 			</form>
 	</div>
-	<div class="content">
-		<h1>Categorias</h1>
-		<br/>
-		<table style="margin: 0 auto; width: 70%">
+	<div class="col-sm-6 col-sm-offset-1 well">
+		<h1 align="center">Categorias</h1>
+
+		<table class="table table-hover" style="margin: 0 auto; width: 70%">
 			<tr>
 				<th>Nome</th>
 				<th>Editar</th>

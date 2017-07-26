@@ -1,22 +1,55 @@
-<div class="content-border">
-	<div class="content">
-    	<h1>Adicionar Administrador</h1>
-        <form name="addadmin" action="index.php?page=usuarios" method="post">
-        	<br/>
-            <label>Nome:</label><input type="text" name="nome" /><br/><br/>
-            <label style="margin-left: -30px">Sobrenome:</label><input type="text" name="sobrenome" /><br/><br/>
-        	<label style="margin-left: -10px">Usuario: </label><input type="text" name="usuario" /><br/><br/>
-            <label style="margin-left: 4px">Email:</label><input type="text" name="email" /><br/><br/>
-        	<label>Senha: </label><input type="password" name="senha" />
-            <br/><br/>
-            <input type="hidden" name="cadastrar" value="TRUE" />
-            <input type="submit" name="cadastro" value="Registrar" />
-            <br/><br/>
+<div class="content-fluid">
+	<div class="col-sm-4 well" >
+    		<h2 align="center">Adicionar Administrador</h2>
+        <form name="addadmin" class="form-horizontal" action="index.php?page=usuarios" method="post">
+
+					<div class="form-group">
+							<label class="control-label col-sm-4" for="nome">Nome:</label>
+							<div class="col-sm-6">
+								<input type="text" name="nome" class="form-control" id="nome" value="<?php if(isset($_POST['nome'])) echo $_POST['nome']; ?>" placeholder="Nome"/>
+							</div>
+					</div>
+
+					<div class="form-group">
+						<label class="control-label col-sm-4" for="sobrenome">Sobrenome:</label>
+						<div class="col-sm-6">
+							<input type="text" name="sobrenome" class="form-control" id="sobrenome" value="<?php if(isset($_POST['sobrenome'])) echo $_POST['sobrenome']; ?>" placeholder="Sobrenome"/>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="control-label col-sm-4" for="usuario">Usuario:</label>
+						<div class="col-sm-6">
+							<input type="text" name="usuario" class="form-control" id="usuario" value="<?php if(isset($_POST['usuario'])) echo $_POST['usuario']; ?>" placeholder="Usuario" />
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="control-label col-sm-4" for="email">Email:</label>
+						<div class="col-sm-6">
+							<input type="text" name="email" class="form-control" id="email" value="<?php if(isset($_POST['email'])) echo $_POST['email']; ?>" placeholder="Email" />
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="control-label col-sm-4" for="senha">Senha:</label>
+						<div class="col-sm-6">
+							<input type="password" name="senha" class="form-control" id="senha" placeholder="Senha" />
+						</div>
+					</div>
+
+					<div class="form-group">
+						<div class="col-sm-offset-4 col-sm-4">
+							<input type="hidden" name="cadastrar" value="TRUE" />
+							<button type="submit" class="btn btn-default" name="cadastro">Registrar</button>
+						</div>
+					</div>
+
         </form>
     </div>
-    <div class="content">
-    	<h1>Usuarios</h1>
-        <table style="margin: 0 auto; width: 100%">
+    <div class="col-sm-8 table-responsive well">
+    	<h1 align="center">Usuarios</h1>
+        <table class="table table-hover" style="margin: 0 auto; width: 100%">
         <tr>
         	<th>Nome</th>
             <th>Usuário</th>
@@ -47,8 +80,8 @@
         <?php endforeach; ?>
         </table>
     </div>
-    <div class="content">
-    	<h1>Estatisticas</h1>
+    <div class="col-sm-5 well">
+    	<h1 align="center">Estatisticas</h1>
         <p>Comuns: <?php echo $CountUsuarios[0]['quantidade']; ?></p>
         <p>Vendedores: <?php echo $CountVendors[0]['quantidade']; ?></p>
         <p>Administradores: <?php echo $CountAdmins[0]['quantidade']; ?></p><br/>

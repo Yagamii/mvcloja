@@ -49,7 +49,7 @@
 												'<span class="caret"></span></a>';
 												echo '<ul class="dropdown-menu">';
 												if($_SESSION['id_nivel'] == 3){
-													echo '<li><a href="painel/index.php?page=home">Admin</a></li>';
+													echo '<li><a href="painel/index.php">Admin</a></li>';
 												}
 												echo '
 												<li><a href="index.php?page=carrinho">Carrinho <span class="badge">'.count(@$_SESSION['carrinho']).'</span></a></li>
