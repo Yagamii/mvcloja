@@ -60,7 +60,7 @@ if(isset($_SESSION['id_usuario'])){ ?>
 		</div>
 
 <?php echo $this->render("src/template/Usuarios/cadastrado.php", array()); ?>
-<div class="col-xs-12 col-sm-9">
+			<div class="col-xs-12 col-sm-10">
 <?php
 
 
@@ -77,8 +77,8 @@ if(isset($_SESSION['id_usuario'])){ ?>
 				echo $content;
 
     		?>
-</div>
-</div>
+			</div>
+	</div>
 </div>
 <?php }else{
 

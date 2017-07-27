@@ -1,47 +1,69 @@
-<div class="content-border">
-	<div class="content">
-		<h1>Adicionar produto</h1>
-		<form action="index.php?page=produtos" enctype="multipart/form-data" method="POST" name="adicionarProduto">
-			<p>
-				<label style="margin-left: 5px">Nome:</label>
-				<input style="margin-left: 5px" type="text" name="nome" size="35px" value="<?php if(isset($_POST['nome']))echo $_POST['nome'];?>"/>
-			</p>
-			<p>
-				<label style="margin-left: -25px;">Descrição:</label>
-				<textarea style="margin-left: 5px" name="descricao" cols="37" rows="5" ><?php if(isset($_POST['descricao']))echo $_POST['descricao'];?></textarea>
-			</p>
-			<p>
-				<label style="margin-left: -23px">Categoria:</label>
-				<select name="categoria" style="width: 280px; margin-left: 5px">
-				<?php foreach($categorias as $key): ?>
-					<option value="<?php echo $key['id_categoria'];?>"><?php echo $key['categoria'];?></option>
-				<?php endforeach; ?>
-			</select>
-			</p>
-			<p>
-				<label style="margin-left: -19px">Valor(R$):</label>
-				<input style="margin-left: 5px" size="35px" type="text" name="valor" value="<?php if(isset($_POST['valor']))echo $_POST['valor'];?>"/>
-			</p>
-			<p>
-				<label style="margin-left: -43px">Quantidade:</label>
-				<input style="margin-left: 5px" type="text" name="quantidade" size="35px" value="<?php if(isset($_POST['quantidade']))echo $_POST['quantidade'];?>"/>
-			</p>
-			<p>
-				<label>Imagem:</label>
-				<input type="hidden" name="MAX_FILE_SIZE" value="500000" />
-				<input type="file" name="imagem" />
-			</p><br/>
-			<p>
-				<input type="hidden" name="addProduto" value="TRUE" />
-				<input type="submit" name="add" value="Adicionar" />
-			</p><br/>
+<div class="content-fluid">
+	<div class="col-sm-5 well">
+		<h1 align="center">Adicionar produto</h1>
+		<form action="index.php?page=produtos" class="form-horizontal" enctype="multipart/form-data" method="POST" name="adicionarProduto">
+
+			<div class="form-group">
+				<label class="control-label col-sm-3" for="nome">Nome:</label>
+					<div class="col-sm-8">
+						<input type="text" class="form-control" name="nome" id="nome" value="<?php if(isset($_POST['nome']))echo $_POST['nome'];?>" placeholder="Nome"/>
+					</div>
+			</div>
+
+			<div class="form-group">
+				<label class="control-label col-sm-3" for="descricao">Descrição:</label>
+				<div class="col-sm-8">
+					<textarea class="form-control" name="descricao" id="descricao" rows="5" placeholder="Descrição"><?php if(isset($_POST['descricao']))echo $_POST['descricao'];?></textarea>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="control-label col-sm-3" for="categoria">Categoria:</label>
+				<div class="col-sm-8">
+					<select name="categoria" id="categoria" class="form-control">
+					<?php foreach($categorias as $key): ?>
+						<option value="<?php echo $key['id_categoria'];?>"><?php echo $key['categoria'];?></option>
+					<?php endforeach; ?>
+					</select>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="control-label col-sm-3">Valor(R$):</label>
+				<div class="col-sm-8">
+					<input class="form-control" type="text" name="valor" id="valor" value="<?php if(isset($_POST['valor']))echo $_POST['valor'];?>" placeholder="Valor"/>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="control-label col-sm-3">Quantidade:</label>
+				<div class="col-sm-8">
+					<input type="text" class="form-control" name="quantidade" id="quantidade" value="<?php if(isset($_POST['quantidade']))echo $_POST['quantidade'];?>" placeholder="Quantidade"/>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="control-label col-sm-3">Imagem:</label>
+				<div class="col-sm-8">
+					<input type="hidden" name="MAX_FILE_SIZE" value="500000" />
+					<label class="btn btn-default btn-file">
+							Upload... <input type="file" name="imagem" style="display: none;">
+					</label>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-offset-3 col-sm-4">
+					<input type="hidden" name="addProduto" value="TRUE" />
+					<button type="submit" class="btn btn-default" name="add">Adicionar</button>
+				</div>
+			</div>
 		</form>
 	</div>
 
-	<div class="content">
-		<h1>Produtos</h1>
+	<div class="col-sm-6 col-sm-offset-1 well">
+		<h1 align="center">Produtos</h1>
 		<br/>
-		<table style="margin: 0 auto; width: 100%">
+		<table class="table table-hover" style="margin: 0 auto; width: 100%">
 			<tr>
 				<th>Nome</th>
 				<th>Categoria</th>
@@ -71,7 +93,7 @@
 		</table>
 	</div>
 
-	<div class="content">
+	<div class="col-sm-4 col-sm-offset-1 well">
 		<h1>Estatisticas</h1>
 
 		<?php

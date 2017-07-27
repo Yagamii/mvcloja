@@ -47,7 +47,7 @@
 
         </form>
     </div>
-    <div class="col-sm-8 table-responsive well">
+    <div class="col-sm-7 col-sm-offset-1 table-responsive well">
     	<h1 align="center">Usuarios</h1>
         <table class="table table-hover" style="margin: 0 auto; width: 100%">
         <tr>
@@ -80,7 +80,7 @@
         <?php endforeach; ?>
         </table>
     </div>
-    <div class="col-sm-5 well">
+    <div class="col-sm-4 well">
     	<h1 align="center">Estatisticas</h1>
         <p>Comuns: <?php echo $CountUsuarios[0]['quantidade']; ?></p>
         <p>Vendedores: <?php echo $CountVendors[0]['quantidade']; ?></p>
